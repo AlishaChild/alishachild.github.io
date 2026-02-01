@@ -8,26 +8,27 @@ body {
 }
 
 header {
-    background: #1E3A8A;  /* match sidebar for cohesion */
+    background: #3e3e40;
     color: white;
     padding: 40px;
     text-align: center;
 }
 
 .main-container {
-    display: flex;       /* sidebar + content layout */
-    min-height: calc(100vh - 120px); /* full viewport minus header/footer */
+    display: flex;       /* sidebar + content in one row */
+    gap: 20px;           /* optional spacing between sidebar & content */
+    padding: 20px;       /* spacing around container */
 }
 
 .sidebar {
     position: sticky;
     top: 0;
     width: 220px;
-    height: calc(100vh - 0px); /* full height */
-    background-color: #1E3A8A; 
+    height: calc(100vh - 40px); /* full viewport minus padding */
+    background-color: #3e3e40;
     color: white;
     padding: 20px;
-    flex-shrink: 0;      /* prevent sidebar from shrinking */
+    flex-shrink: 0;
 }
 
 .sidebar ul {
@@ -50,10 +51,9 @@ header {
 }
 
 .content {
-    flex: 1;             /* take remaining width */
-    padding: 40px;
-    max-width: 1000px;   /* prevent content from stretching too wide */
-    margin: 0 auto;
+    flex: 1;
+    padding: 20px;
+    max-width: 1000px;
     background: white;
     box-shadow: 0 0 10px rgba(0,0,0,0.05);
     border-radius: 8px;
@@ -70,11 +70,11 @@ section:last-child {
 
 h2 {
     margin-top: 0;
-    color: #1E3A8A;
+    color: #3e3e40;
 }
 
 a {
-    color: #1E3A8A;
+    color: #3e3e40;
 }
 
 a:hover {
@@ -85,5 +85,4 @@ footer {
     background: #f0f0f0;
     text-align: center;
     padding: 20px;
-    margin-top: 40px;
 }

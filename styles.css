@@ -14,12 +14,18 @@ header {
     display: flex;
     justify-content: space-between; /* main content left, disclaimer right */
     align-items: flex-start;        /* aligns disclaimer to top */
-    position: relative;
 }
 
-/* Header text container (optional, if you want left side stacked vertically) */
-header h1, header p {
+.header-left h1 {
     margin: 0;
+    font-size: 2rem;
+}
+
+.header-left .title {
+    margin: 5px 0 0 0; /* small spacing under name */
+    font-size: 1.2rem;
+    font-weight: normal;
+    opacity: 0.9;      /* subtle styling */
 }
 
 /* Disclaimer in upper right */

@@ -1,69 +1,89 @@
 body {
-    display: flex;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
+    scroll-behavior: smooth;
+    background: #f9f9f9;
 }
 
 header {
-    background: #66666870;
+    background: #1E3A8A;  /* match sidebar for cohesion */
     color: white;
     padding: 40px;
     text-align: center;
 }
 
-.content {
-  flex: 1;
-  padding: 40px;
+.main-container {
+    display: flex;       /* sidebar + content layout */
+    min-height: calc(100vh - 120px); /* full viewport minus header/footer */
 }
 
-html {
-  scroll-behavior: smooth;
+.sidebar {
+    position: sticky;
+    top: 0;
+    width: 220px;
+    height: calc(100vh - 0px); /* full height */
+    background-color: #1E3A8A; 
+    color: white;
+    padding: 20px;
+    flex-shrink: 0;      /* prevent sidebar from shrinking */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin: 15px 0;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.sidebar a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    flex: 1;             /* take remaining width */
+    padding: 40px;
+    max-width: 1000px;   /* prevent content from stretching too wide */
+    margin: 0 auto;
+    background: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    border-radius: 8px;
 }
 
 section {
-    padding: 20px 40px;
-    max-width: 800px;
-    margin: auto;
+    padding: 40px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+section:last-child {
+    border-bottom: none;
 }
 
 h2 {
-    margin-top: 40px;
+    margin-top: 0;
+    color: #1E3A8A;
+}
+
+a {
+    color: #1E3A8A;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 footer {
     background: #f0f0f0;
     text-align: center;
-    padding: 15px;
+    padding: 20px;
     margin-top: 40px;
-}
-
-.sidebar {
-  position: sticky;        /* Keeps it fixed while scrolling */
-  top: 0;
-  width: 220px;
-  height: 100vh;
-  background-color: #66666870;
-  color: white;
-  padding: 20px;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-}
-
-.sidebar li {
-  margin: 15px 0;
-}
-
-.sidebar a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.sidebar a:hover {
-  text-decoration: underline;
 }

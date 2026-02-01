@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-H26L7C1VK4"></script>
     <script>
@@ -9,6 +9,44 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-H26L7C1VK4');
+    // ---------- Track link clicks ----------
+    document.addEventListener('DOMContentLoaded', () => {
+        const links = document.querySelectorAll('a[href]');
+        links.forEach(link => {
+        const href = link.getAttribute('href');
+        // Track only external/important links
+        if (href.includes('linkedin.com') || href.includes('github.com') || href.includes('seek.com.au')) {
+            link.addEventListener('click', () => {
+            gtag('event', 'click', {
+                'event_category': 'Outbound Link',
+                'event_label': href,
+                'transport_type': 'beacon'
+            });
+            });
+        }
+        });
+
+        // ---------- Track scroll depth ----------
+        const sections = document.querySelectorAll('section[id]');
+        let trackedSections = new Set();
+
+        window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY + window.innerHeight / 2; // middle of screen
+        sections.forEach(section => {
+            if (!trackedSections.has(section.id)) {
+            const sectionTop = section.offsetTop;
+            const sectionBottom = sectionTop + section.offsetHeight;
+            if (scrollY >= sectionTop && scrollY <= sectionBottom) {
+                gtag('event', 'scroll_section', {
+                'event_category': 'Scroll',
+                'event_label': section.id
+                });
+                trackedSections.add(section.id);
+            }
+            }
+        });
+        });
+    });
     </script>
 
     <meta charset="UTF-8" />

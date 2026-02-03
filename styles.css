@@ -108,7 +108,7 @@ a:hover {
 .data-table {
     width: 100%;
     border-collapse: collapse;
-    font-family: monospace; /* optional, very data-core */
+    font-family: monospace;
     font-size: 0.9rem;
 }
 
